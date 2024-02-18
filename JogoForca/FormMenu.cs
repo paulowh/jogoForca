@@ -20,8 +20,13 @@ namespace JogoForca
         private void btnJogar_Click(object sender, EventArgs e)
         {
             Form formJogo = new FormJogo(); //criando uma instancia do nosso formulario
-
             formJogo.ShowDialog(); //pedindo para abrir o formualario
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            Form formCadastro = new FormCadastro(); //criando uma instancia do nosso formulario
+            formCadastro.ShowDialog(); //pedindo para abrir o formualario
         }
     }
 }

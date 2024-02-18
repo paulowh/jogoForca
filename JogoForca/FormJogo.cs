@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,8 +38,35 @@ namespace JogoForca
 
         private string SortearPalavra()
         {
+            // Define a string de conexão com o banco de dados MySQL, incluindo o servidor, usuário, banco de dados e porta.
+            string conexaoString = "server=localhost;user=root;database=db_jogoForca;port=3306;password=";
 
-            return "";
+            using (MySqlConnection conexao = new MySqlConnection(conexaoString))// Estabelece uma conexão com o banco de dados MySQL usando a classe MySqlConnection.
+            {
+                string scriptSQL = "SELECT palavra FROM tb_palavras";// Define a consulta SQL para selecionar todas as palavras da tabela 'tb_palavras'.
+
+                using (MySqlCommand command = new MySqlCommand(scriptSQL, conexao))// Cria um comando MySQL com a consulta SQL e a conexão estabelecida.
+                {
+                    conexao.Open();// Abre a conexão com o banco de dados.
+                    List<string> palavrasBanco = new List<string>();// Cria uma lista para armazenar as palavras recuperadas do banco de dados.
+                    using (MySqlDataReader reader = command.ExecuteReader())// Executa o comando SQL para recuperar os dados do banco de dados.
+                    {
+                        while (reader.Read())// Itera sobre cada registro retornado pela consulta.
+                        {
+                            // Obtém o valor da coluna 'palavra' e adiciona à lista de palavras.
+                            string palavra = reader.GetString(0);
+                            palavrasBanco.Add(palavra);
+                        }
+                    }
+
+                    conexao.Close(); // Fecha a conexão com o banco de dados após recuperar todas as palavras.
+
+                    Random rnd = new Random();
+                    int indiceSorteado = rnd.Next(0, palavrasBanco.Count);
+
+                    return palavrasBanco[indiceSorteado];
+                }
+            }
         }
 
         private char[] SepararLetraPalavra(string palavra)
@@ -79,10 +108,10 @@ namespace JogoForca
         private void btnVerificarLetra_Click(object sender, EventArgs e)
         {
 
-         
+
             string letra = txbTentativa.Text.ToLower();
 
-            
+
             bool letraRepetida = false;
             for (int i = 0; i < letrasTentadas.Length; i++)
             {
@@ -130,7 +159,7 @@ namespace JogoForca
         private void FormJogo_Load(object sender, EventArgs e)
         {
             palavra_secreta = SortearPalavra();
-            lbPalavraSecreta.Text = palavra_secreta;
+            lbPalavraSecreta.Text = VerificarPalavra(palavra_secreta.ToCharArray(), letrasTentadas.ToCharArray());
         }
     }
 }
