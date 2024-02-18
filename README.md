@@ -1,2 +1,1 @@
-"# jogoForca" 
-"# jogoForca" 
+# jogoForca
