@@ -1,0 +1,11 @@
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\bin\Debug\JogoForca.exe.config
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\bin\Debug\JogoForca.exe
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\bin\Debug\JogoForca.pdb
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.csproj.AssemblyReference.cache
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.FormMenu.resources
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.Properties.Resources.resources
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.csproj.GenerateResource.cache
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.csproj.CoreCompileInputs.cache
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.exe
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.pdb
+C:\Users\Paulo Henrique\source\repos\JogoForca\JogoForca\obj\Debug\JogoForca.FormJogo.resources
